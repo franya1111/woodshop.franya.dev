@@ -1,21 +1,6 @@
-# Dependencies
-node_modules/
-.pnp/
-.pnp.js
-
-# Next.js build cache (intermediate, not needed at runtime)
-.next/
-
-# Bun lockfile binary
-bun.lockb
-
-# Logs
-*.log
-dev.log
-server.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# OS
+.DS_Store
+Thumbs.db
 
 # Editor
 .vscode/
@@ -23,31 +8,6 @@ yarn-error.log*
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Env
-.env
-.env.local
-.env.*.local
-
-# Prisma
-prisma/dev.db
-prisma/*.db-journal
-
-# Tooling artifacts (sandbox-only)
-.zscripts/
-tool-results/
-worklog.md
-tests/
-
-# Reference files from woodwave.ie analysis (kept locally only)
-download/woodwave.html
-download/woodwave.css
-download/woodwave-reference*.png
-download/preview*.png
-download/img/
-
-# NOTE: out/ is committed on purpose — it's the pre-built static
-# site the user serves with serve.sh, no Node.js needed at runtime.
+# Logs
+*.log
+download/
