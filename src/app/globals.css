@@ -1,0 +1,507 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   WOODWAVE HOME — Dark Walnut Design System
+   Adapted from woodwave.ie
+   ============================================================ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Wood scale */
+  --color-wood-50: var(--wood-50);
+  --color-wood-100: var(--wood-100);
+  --color-wood-200: var(--wood-200);
+  --color-wood-300: var(--wood-300);
+  --color-wood-400: var(--wood-400);
+  --color-wood-500: var(--wood-500);
+  --color-wood-600: var(--wood-600);
+  --color-wood-700: var(--wood-700);
+  --color-wood-800: var(--wood-800);
+  --color-wood-900: var(--wood-900);
+  --color-wood-950: var(--wood-950);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* WoodWave color tokens */
+  --wood-950: #1a1008;
+  --wood-900: #2d1c0d;
+  --wood-800: #4a2e15;
+  --wood-700: #6d4420;
+  --wood-600: #8b5a2b;
+  --wood-500: #a2733f;
+  --wood-400: #c48b52;
+  --wood-300: #d4a373;
+  --wood-200: #e8d0a8;
+  --wood-100: #f5ead6;
+  --wood-50:  #fdf8f0;
+  --gold: #d4a373;
+  --gold-light: #e8c9a0;
+  --cream: #faf6f0;
+
+  /* shadcn bridge — light theme */
+  --radius: 0.625rem;
+  --background: #fdf8f0;
+  --foreground: #1a1008;
+  --card: #fdf8f0;
+  --card-foreground: #1a1008;
+  --popover: #fdf8f0;
+  --popover-foreground: #1a1008;
+  --primary: #8b5a2b;
+  --primary-foreground: #fdf8f0;
+  --secondary: #f5ead6;
+  --secondary-foreground: #1a1008;
+  --muted: #f5ead6;
+  --muted-foreground: #6d4420;
+  --accent: #d4a373;
+  --accent-foreground: #1a1008;
+  --destructive: #dc2626;
+  --border: #e8d0a8;
+  --input: #e8d0a8;
+  --ring: #d4a373;
+  --chart-1: #8b5a2b;
+  --chart-2: #d4a373;
+  --chart-3: #6d4420;
+  --chart-4: #c48b52;
+  --chart-5: #e8c9a0;
+}
+
+/* Dark walnut theme — applied by default for WoodWave feel */
+.dark,
+:root.woodwave-dark {
+  --background: #1a1008;
+  --foreground: #f5ead6;
+  --card: #2d1c0d;
+  --card-foreground: #f5ead6;
+  --popover: #2d1c0d;
+  --popover-foreground: #f5ead6;
+  --primary: #d4a373;
+  --primary-foreground: #1a1008;
+  --secondary: #2d1c0d;
+  --secondary-foreground: #f5ead6;
+  --muted: #2d1c0d;
+  --muted-foreground: #c48b52;
+  --accent: #d4a373;
+  --accent-foreground: #1a1008;
+  --destructive: #dc2626;
+  --border: #4a2e15;
+  --input: #4a2e15;
+  --ring: #d4a373;
+  --chart-1: #d4a373;
+  --chart-2: #8b5a2b;
+  --chart-3: #c48b52;
+  --chart-4: #e8c9a0;
+  --chart-5: #6d4420;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    background-color: var(--wood-950);
+    color: var(--wood-100);
+  }
+  ::selection {
+    background: rgba(212, 163, 115, 0.3);
+    color: var(--wood-50);
+  }
+  /* Custom scrollbar — woodwave style */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--wood-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--wood-600);
+    border-radius: 8px;
+    border: 2px solid var(--wood-950);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--wood-500);
+  }
+}
+
+/* ============================================================
+   WoodWave utility classes
+   ============================================================ */
+
+.ww-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.ww-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.ww-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.ww-section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--wood-50);
+  letter-spacing: -0.01em;
+}
+
+.ww-gold-gradient-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 60%, var(--wood-400) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+.ww-gold-gradient {
+  background: linear-gradient(135deg, var(--wood-700) 0%, var(--wood-600) 40%, var(--gold) 100%);
+}
+
+.ww-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 14px 32px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+}
+
+.ww-btn-solid {
+  background: linear-gradient(135deg, var(--wood-700) 0%, var(--wood-600) 40%, var(--gold) 100%);
+  color: var(--wood-50);
+}
+.ww-btn-solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(162, 115, 63, 0.35);
+}
+
+.ww-btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--wood-500);
+}
+.ww-btn-outline:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 30px rgba(162, 115, 63, 0.25);
+  background: rgba(212, 163, 115, 0.08);
+}
+
+.ww-card {
+  background: var(--wood-900);
+  border: 1px solid var(--wood-800);
+  border-radius: 16px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.ww-card-hover:hover {
+  transform: translateY(-6px);
+  border-color: var(--wood-600);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.ww-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--wood-700);
+  background: rgba(45, 28, 13, 0.7);
+  color: var(--wood-200);
+  backdrop-filter: blur(6px);
+}
+
+.ww-divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--wood-300), var(--gold), transparent);
+  opacity: 0.6;
+  border: none;
+}
+
+/* Marquee */
+.ww-marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+.ww-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  animation: ww-marquee 35s linear infinite;
+}
+.ww-marquee:hover .ww-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes ww-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes ww-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+.ww-scroll-indicator {
+  animation: ww-bounce 2s ease-in-out infinite;
+}
+
+/* Scroll reveal */
+.ww-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.ww-reveal.ww-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ww-reveal-delay-1 { transition-delay: 0.1s; }
+.ww-reveal-delay-2 { transition-delay: 0.2s; }
+.ww-reveal-delay-3 { transition-delay: 0.3s; }
+.ww-reveal-delay-4 { transition-delay: 0.4s; }
+.ww-reveal-delay-5 { transition-delay: 0.5s; }
+.ww-reveal-delay-6 { transition-delay: 0.6s; }
+
+/* Hero overlay */
+.ww-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(26, 16, 8, 0.7) 0%,
+      rgba(26, 16, 8, 0.3) 30%,
+      rgba(26, 16, 8, 0.5) 60%,
+      rgba(26, 16, 8, 0.95) 100%);
+}
+
+.ww-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      rgba(26, 16, 8, 0.5) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(26, 16, 8, 0.5) 100%);
+}
+
+.ww-blur-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ww-glass {
+  background: rgba(26, 16, 8, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--wood-700);
+}
+
+.ww-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--wood-950);
+  border: 1px solid var(--wood-700);
+  border-radius: 10px;
+  color: var(--wood-100);
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+.ww-input::placeholder {
+  color: var(--wood-500);
+}
+.ww-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.15);
+}
+
+/* Star rating */
+.ww-stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--gold);
+}
+
+/* Swatches */
+.ww-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--wood-700);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ww-swatch:hover { transform: scale(1.08); }
+.ww-swatch.ww-swatch-active {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.25);
+}
+
+.ww-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.ww-price-old {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--wood-500);
+  text-decoration: line-through;
+}
+
+.ww-badge-new {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--wood-700), var(--gold));
+  color: var(--wood-50);
+}
+
+.ww-badge-discount {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(220, 38, 38, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.ww-badge-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4ade80;
+}
+
+/* Nav link underline */
+.ww-nav-link {
+  position: relative;
+  color: var(--wood-200);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+.ww-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition: width 0.3s ease;
+}
+.ww-nav-link:hover {
+  color: var(--gold);
+}
+.ww-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Image zoom-on-hover */
+.ww-img-zoom {
+  overflow: hidden;
+  position: relative;
+}
+.ww-img-zoom img {
+  transition: transform 0.7s ease;
+}
+.ww-img-zoom:hover img {
+  transform: scale(1.08);
+}
