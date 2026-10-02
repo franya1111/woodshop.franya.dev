@@ -254,6 +254,10 @@ input { font-family: inherit; }
   font-size: 1.0625rem; max-width: 36rem; margin-bottom: 2rem; color: var(--wood-200);
   line-height: 1.7;
 }
+/* Mobile: hide the long description — keep hero clean and centered */
+@media (max-width: 767px) {
+  .hero-text { display: none; }
+}
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; justify-content: center; }
 @media (min-width: 768px) { .hero-actions { justify-content: flex-start; margin-bottom: 3.5rem; } }
 .hero-stats {
